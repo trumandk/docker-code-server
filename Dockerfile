@@ -25,6 +25,10 @@ RUN \
  apt-get update && \
  apt-get install -y \
 	build-essential \
+	docker.io \
+	docker-compose \
+	golang \
+	vim \
 	libx11-dev \
 	libxkbfile-dev \
 	libsecret-1-dev \

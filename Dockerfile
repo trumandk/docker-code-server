@@ -27,6 +27,7 @@ RUN \
 	build-essential \
 	docker.io \
 	docker-compose \
+	wget \
 	golang \
 	vim \
 	libx11-dev \
@@ -65,6 +66,21 @@ RUN \
 
 # add local files
 COPY /root /
+RUN wget https://github.com/microsoft/vscode-cpptools/releases/download/1.1.0/cpptools-linux-aarch64.vsix
+RUN code-server --install-extension cpptools-linux-aarch64.vsix
+RUN wget https://github.com/golang/vscode-go/releases/download/v0.18.1/go-0.18.1.vsix
+RUN code-server --install-extension go-0.18.1.vsix
+RUN wget https://github.com/microsoft/vscode-docker/releases/download/v1.7.0/vscode-docker-1.7.0.vsix
+RUN code-server --install-extension vscode-docker-1.7.0.vsix
+
+RUN wget https://github.com/microsoft/vscode-python/releases/download/2020.10.332292344/ms-python-release.vsix
+RUN code-server --install-extension ms-python-release.vsix
+
+RUN wget https://github.com/eamodio/vscode-gitlens/releases/download/v10.2.3/gitlens-10.2.3.vsix
+RUN code-server --install-extension gitlens-10.2.3.vsix
+
+
+
 
 # ports and volumes
 EXPOSE 8443

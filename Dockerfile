@@ -10,6 +10,7 @@ LABEL maintainer="aptalca"
 # environment settings
 ENV HOME="/config"
 
+
 RUN \
  echo "**** install node repo ****" && \
  apt-get update && \

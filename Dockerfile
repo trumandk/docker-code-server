@@ -66,6 +66,7 @@ RUN \
 
 # add local files
 COPY /root /
+ARG HOME='/config'
 RUN wget https://github.com/microsoft/vscode-cpptools/releases/download/1.1.0/cpptools-linux-aarch64.vsix
 RUN code-server --install-extension cpptools-linux-aarch64.vsix
 RUN wget https://github.com/golang/vscode-go/releases/download/v0.18.1/go-0.18.1.vsix

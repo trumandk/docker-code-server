@@ -1,4 +1,9 @@
 FROM ghcr.io/linuxserver/baseimage-ubuntu:focal
+RUN apt-get update
+RUN apt-get install software-properties-common -y
+RUN add-apt-repository universe
+RUN apt-get update
+RUN apt-get install python2 -y
 
 # set version label
 ARG BUILD_DATE

@@ -20,6 +20,7 @@ exec \
 			--user-data-dir /config/data \
 			--extensions-dir /config/extensions \
 			--disable-telemetry \
+			--cert \
 			--auth "${AUTH}" \
 			"${PROXY_DOMAIN_ARG}" \
 			/config/workspace

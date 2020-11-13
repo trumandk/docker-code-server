@@ -1,4 +1,4 @@
-FROM ghcr.io/linuxserver/baseimage-ubuntu:bionic
+FROM ghcr.io/linuxserver/baseimage-ubuntu:focal
 
 # set version label
 ARG BUILD_DATE
@@ -78,6 +78,11 @@ RUN code-server --install-extension ms-python-release.vsix
 
 RUN wget https://github.com/eamodio/vscode-gitlens/releases/download/v10.2.3/gitlens-10.2.3.vsix
 RUN code-server --install-extension gitlens-10.2.3.vsix
+
+RUN wget https://github.com/ChristianKohler/PathIntellisense/releases/download/v2.3.0/path-intellisense-2.3.0.vsix
+RUN code-server --install-extension path-intellisense-2.3.0.vsix
+
+
 
 
 

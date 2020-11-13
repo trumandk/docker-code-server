@@ -17,19 +17,17 @@ ENV HOME="/config"
 
 
 RUN \
- echo "**** install node repo ****" && \
- apt-get update && \
- apt-get install -y \
-	gnupg && \
- curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add - && \
- echo 'deb https://deb.nodesource.com/node_12.x bionic main' \
-	> /etc/apt/sources.list.d/nodesource.list && \
- curl -s https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
- echo 'deb https://dl.yarnpkg.com/debian/ stable main' \
-	> /etc/apt/sources.list.d/yarn.list && \
- echo "**** install build dependencies ****" && \
- apt-get update && \
- apt-get install -y \
+ echo "**** install node repo ****"
+RUN apt-get update
+RUN apt-get install -y \
+	gnupg 
+RUN curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add - 
+RUN echo 'deb https://deb.nodesource.com/node_12.x focal main' > /etc/apt/sources.list.d/nodesource.list
+RUN curl -s https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - 
+RUN echo 'deb https://dl.yarnpkg.com/debian/ stable main' > /etc/apt/sources.list.d/yarn.list
+RUN echo "**** install build dependencies ****"
+RUN apt-get update
+RUN apt-get install -y \
 	build-essential \
 	docker.io \
 	docker-compose \
@@ -39,17 +37,17 @@ RUN \
 	libx11-dev \
 	libxkbfile-dev \
 	libsecret-1-dev \
-	pkg-config && \
- echo "**** install runtime dependencies ****" && \
- apt-get install -y \
+	pkg-config
+RUN echo "**** install runtime dependencies ****" 
+RUN apt-get install -y \
 	git \
 	jq \
 	nano \
 	net-tools \
 	nodejs \
 	sudo \
-	yarn && \
- echo "**** install code-server ****" && \
+	yarn 
+RUN echo "**** install code-server ****" && \
  if [ -z ${CODE_RELEASE+x} ]; then \
 	CODE_RELEASE=$(curl -sX GET "https://api.github.com/repos/cdr/code-server/releases/latest" \
 	| awk '/tag_name/{print $4;exit}' FS='[""]'); \
@@ -57,8 +55,8 @@ RUN \
  CODE_VERSION=$(echo "$CODE_RELEASE" | awk '{print substr($1,2); }') && \
  yarn --production --frozen-lockfile global add code-server@"$CODE_VERSION" && \
  yarn cache clean && \
- echo "**** clean up ****" && \
- apt-get purge --auto-remove -y \
+ echo "**** clean up ****" 
+RUN apt-get purge --auto-remove -y \
 	build-essential \
 	libx11-dev \
 	libxkbfile-dev \

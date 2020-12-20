@@ -29,6 +29,7 @@ RUN echo "**** install build dependencies ****"
 RUN apt-get update
 RUN apt-get install -y \
 	build-essential \
+	make \
 	docker.io \
 	docker-compose \
 	wget \
@@ -72,8 +73,8 @@ RUN apt-get purge --auto-remove -y \
 # add local files
 COPY /root /
 #ARG HOME='/config'
-RUN wget https://github.com/microsoft/vscode-cpptools/releases/download/1.1.0/cpptools-linux-aarch64.vsix
-RUN code-server --install-extension cpptools-linux-aarch64.vsix --extensions-dir /config/extensions/
+RUN wget https://github.com/microsoft/vscode-cpptools/releases/download/0.29.0/cpptools-linux.vsix
+RUN code-server --install-extension cpptools-linux.vsix --extensions-dir /config/extensions/
 
 RUN wget https://github.com/golang/vscode-go/releases/download/v0.18.1/go-0.18.1.vsix
 RUN code-server --install-extension go-0.18.1.vsix --extensions-dir /config/extensions/

@@ -75,23 +75,23 @@ RUN apt-get purge --auto-remove -y \
 # add local files
 COPY /root /
 #ARG HOME='/config'
-RUN wget https://github.com/microsoft/vscode-cpptools/releases/download/0.29.0/cpptools-linux.vsix
-RUN code-server --install-extension cpptools-linux.vsix --extensions-dir /config/extensions/
+#RUN wget https://github.com/microsoft/vscode-cpptools/releases/download/0.29.0/cpptools-linux.vsix
+#RUN code-server --install-extension cpptools-linux.vsix --extensions-dir /config/extensions/
 
-RUN wget https://github.com/golang/vscode-go/releases/download/v0.18.1/go-0.18.1.vsix
-RUN code-server --install-extension go-0.18.1.vsix --extensions-dir /config/extensions/
+#RUN wget https://github.com/golang/vscode-go/releases/download/v0.18.1/go-0.18.1.vsix
+#RUN code-server --install-extension go-0.18.1.vsix --extensions-dir /config/extensions/
 
-RUN wget https://github.com/microsoft/vscode-docker/releases/download/v1.7.0/vscode-docker-1.7.0.vsix
-RUN code-server --install-extension vscode-docker-1.7.0.vsix --extensions-dir /config/extensions/
+#RUN wget https://github.com/microsoft/vscode-docker/releases/download/v1.7.0/vscode-docker-1.7.0.vsix
+#RUN code-server --install-extension vscode-docker-1.7.0.vsix --extensions-dir /config/extensions/
 
-RUN wget https://github.com/microsoft/vscode-python/releases/download/2020.10.332292344/ms-python-release.vsix
-RUN code-server --install-extension ms-python-release.vsix --extensions-dir /config/extensions/
+#RUN wget https://github.com/microsoft/vscode-python/releases/download/2020.10.332292344/ms-python-release.vsix
+#RUN code-server --install-extension ms-python-release.vsix --extensions-dir /config/extensions/
 
-RUN wget https://github.com/eamodio/vscode-gitlens/releases/download/v10.2.3/gitlens-10.2.3.vsix
-RUN code-server --install-extension gitlens-10.2.3.vsix --extensions-dir /config/extensions/
+#RUN wget https://github.com/eamodio/vscode-gitlens/releases/download/v10.2.3/gitlens-10.2.3.vsix
+#RUN code-server --install-extension gitlens-10.2.3.vsix --extensions-dir /config/extensions/
 
-RUN wget https://github.com/ChristianKohler/PathIntellisense/releases/download/v2.3.0/path-intellisense-2.3.0.vsix
-RUN code-server --install-extension path-intellisense-2.3.0.vsix
+#RUN wget https://github.com/ChristianKohler/PathIntellisense/releases/download/v2.3.0/path-intellisense-2.3.0.vsix
+#RUN code-server --install-extension path-intellisense-2.3.0.vsix
 
 
 

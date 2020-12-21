@@ -47,6 +47,8 @@ RUN apt-get install -y \
 	net-tools \
 	nodejs \
 	sudo \
+	libpcap-dev \
+	iputils-ping \
 	yarn 
 RUN echo "**** install code-server ****" && \
  if [ -z ${CODE_RELEASE+x} ]; then \
